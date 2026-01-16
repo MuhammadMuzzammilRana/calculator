@@ -6,12 +6,8 @@ function calculator(){
     answer.innerText = Number(eval(userInput)).toFixed(2)
     user.innerText = "0"
 }
-
-
-// var user = document.getElementById('input-screen')
-
 function calc(data){
-    if (user.innerText == '0' && (data == '+' || data == '*' || data == '/' || data == '%')) {
+    if (user.innerText == '0' && (data == '+' || data == '*' || data == '**' || data == '/' || data == '%' || data == '(' || data == ')')) {
        alert('Please first enter any number') 
        return
     }
