@@ -1,72 +1,39 @@
-let firstNum = "";
-let secondNum = "";
-let operator = "";
-let screen = document.getElementById("screen");
-
-function calc(a) {
-
-    a = String(a); 
-    if (a >= "0" && a <= "9") {
-        screen.innerText += a;
-    }
-    else if (a === "+" || a === "-" || a === "*" || a === "/") {
-
-        if (firstNum === "") {
-            firstNum = screen.innerText;   
-            operator = a;                  
-            screen.innerText = "";         
-        } 
-        else if (screen.innerText !== "") {
-            secondNum = screen.innerText;
-
-            let result = calculate(firstNum, operator, secondNum);
-            screen.innerText = result;
-            firstNum = result;
-            operator = a;
-            screen.innerText = "";
-        } 
-        else {
-            operator = a;
-        }
-    }
-    else if (a === "c") {
-        screen.innerText = "";
-        firstNum = "";
-        secondNum = "";
-        operator = "";
-    }
-    else if (a === "=") {
-
-        if (operator !== "") {
-            secondNum = screen.innerText;
-
-            let result = calculate(firstNum, operator, secondNum);
-
-            screen.innerText = result;
-            firstNum = "";
-            secondNum = "";
-            operator = "";
-        }
-    }
+var answer = document.getElementById('screen')
+var user = document.getElementById('input-screen');
+user.innerText = "0"
+function calculator(){
+    var userInput = user.innerText
+    answer.innerText = Number(eval(userInput)).toFixed(2)
+    user.innerText = "0"
 }
-function calculate(a, op, b) {
-    a = Number(a);
-    b = Number(b);
 
-    if (op === "+") {
-        return a + b;
+
+// var user = document.getElementById('input-screen')
+
+function calc(data){
+    if (user.innerText == '0' && (data == '+' || data == '*' || data == '/' || data == '%')) {
+       alert('Please first enter any number') 
+       return
     }
-    else if (op === "-") {
-        return a - b;
+    if(data == 'C'){
+        user.innerText = '0'
+        answer.innerText = ""
+        return
     }
-    else if (op === "*") {
-        return a * b;
-    }
-    else if (op === "/") {
-        if (b === 0) {
-            return "Error";
-        } else {
-            return a / b;
+    
+    if(data == 'del'){
+        var textLength = user.innerText.length;
+        user.innerText = user.innerText.slice(0, textLength -1);
+        if (textLength == 1) {
+            user.innerText = "0"
         }
+        return
+    }
+ if (user.innerText === '0') {
+        answer.innerText = ""
+        user.innerText = data;
+    } else {
+        answer.innerText = ""
+        user.innerText += data;
     }
 }
