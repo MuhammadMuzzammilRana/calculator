@@ -15,24 +15,12 @@
         border-radius: 10px;
         margin: 20px auto;
     }
-        h1{
-        width: 90%;
-        max-width: 360px;
-        height: 50px;
-        border-radius: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.8rem;
-        margin: 10px auto;
-        color: whitesmoke;
-    }
     p {
         background-color: white;
         width: 90%;
         max-width: 360px;
         height: 50px;
-        border-radius: 20px;
+        /* border-radius: 20px; */
         display: flex;
         align-items: center;
         justify-content: center;
@@ -80,14 +68,59 @@
             margin: 3px 1%;
         }
     }
+    h1{
+        width: 90%;
+        max-width: 360px;
+        height: 50px;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 10px auto;
+        color: whitesmoke;
+    }
+.p-group {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    max-width: 360px;
+    margin: 10px auto;
+}
+.p-group p {
+    margin: 0;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 1.3rem;
+    background-color: white;
+}
+#input-screen {
+    border-bottom: none;
+    border-radius: 10px 10px 0 0;
+    justify-content: flex-end;
+    color: #555;
+    font-size: 1.1rem;
+}
+#screen {
+    border-radius: 0 0 10px 10px;
+    justify-content: flex-end;
+    font-weight: bold;
+}
+ul p h3{
+    font-family: sans-serif;
+    font-size: 25px;
+}
 </style>
 </head>
 <body>
-<div id="calc">
+    <div id="calc">
     <h1>Advanced Calculator</h1>
+    <div class="p-group">
     <p id="input-screen"></p>
     <p id="screen"></p>
-
+    </div>
     <div class="buttons">
         <button onclick="calc(7)">7</button>
         <button onclick="calc(8)">8</button>
@@ -116,10 +149,11 @@
         
         <button class="letter" onclick="calc('C')">C</button>
         <button class="letter" onclick="calc('del')">Del</button>
+        <button class="letter" onclick="calc('his')">History</button>
+        <button class="letter" onclick="calc('remove-his')">Remove History</button>
     </div>
 </div>
-
+    <ul id="his-screen"></ul>
 <script src="app.js"></script>
 </body>
 </html>
-
